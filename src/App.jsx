@@ -98,14 +98,14 @@ const CATEGORIES = [
     heroGradient: 'linear-gradient(135deg, #000d1a 0%, #001520 50%, #0a0a0a 100%)',
     cardGradient: 'linear-gradient(135deg, #001020 0%, #001a15 100%)',
     images: [
-      { id: 1, tier: 'B', col: 'span 5', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776023868/nice_n9owws.jpg", alt: 'Editorial illustration', aspect: '3/4' },
-      { id: 2, tier: 'A', col: 'span 7', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776024078/copy_of_mountain_zpnlag_647d4a.jpg", alt: 'Narrative character piece', aspect: '3/2' },
-      { id: 3, tier: 'C', col: 'span 6', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776023865/hot_art_sotgpi.jpg", alt: 'Portrait illustration', aspect: '4/6' },
+      { id: 1, tier: 'B', col: 'span 5', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776232789/Walt_jpn5nd.jpg", alt: 'Editorial illustration', aspect: '3/4' },
+      { id: 2, tier: 'A', col: 'span 7', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776232974/alone_buiv0g.jpg", alt: 'Narrative character piece', aspect: '3/2' },
+      { id: 3, tier: 'C', col: 'span 6', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776232789/sun3_cu9prx.jpg", alt: 'Portrait illustration', aspect: '4/6' },
       { id: 4, tier: 'A', col: 'span 6', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776023863/gggoood_emxuar.jpg", alt: 'Story cover illustration', aspect: '4/5' },
       { id: 5, tier: 'B', col: 'span 8', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776023982/sky_wlewmo_f7ec0b.jpg", alt: 'Editorial spread illustration', aspect: '16/9' },
-      { id: 6, tier: 'C', col: 'span 4', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776023868/lying_woman_ovuval.jpg", alt: 'Character design illustration', aspect: '1/1' },
-      { id: 7, tier: 'A', col: 'span 7', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776023865/hot_2_ir8pq4.jpg", alt: 'Landscape narrative', aspect: '2/3' },
-      { id: 8, tier: 'B', col: 'span 5', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776021549/Boobs_ojj434.jpg", alt: 'Book cover illustration', aspect: '3/5' },
+      { id: 6, tier: 'C', col: 'span 4', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776232789/meditation_xzrkfx.jpg", alt: 'Character design illustration', aspect: '1/1' },
+      { id: 7, tier: 'A', col: 'span 7', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776232789/tree_ogjhbu.jpg", alt: 'Landscape narrative', aspect: '3/4' },
+      { id: 8, tier: 'B', col: 'span 5', src: "https://res.cloudinary.com/dzy5g3e5v/image/upload/q_auto/f_auto/v1776232788/eye_3_b1yrgm.jpg", alt: 'Book cover illustration', aspect: '3/5' },
     ],
     heroImage: '/images/illustration-hero.jpg',
     cardImage: '/images/illustration-hero.jpg',
@@ -114,10 +114,75 @@ const CATEGORIES = [
 
 // Gallery placeholder colors per category
 const PLACEHOLDER_PALETTES = {
-  'concept-art':    ['#1a0d00','#0d1a2e','#2d1a00','#1a2d1a','#00152d','#2d2d00','#1a001a','#0a1a0a'],
-  'animation':      ['#001a0d','#0a1a00','#001510','#0d1a05','#051a0d','#0a1505','#001a0a','#0a0a1a'],
-  'ad-directing':   ['#1a001a','#0d001a','#1a0010','#10001a','#1a0005','#05001a','#0f0010','#1a000a'],
-  'illustration':   ['#000d1a','#001520','#001018','#00101a','#000a15','#00151a','#001015','#001218'],
+  'concept-art': ['#1a0d00', '#0d1a2e', '#2d1a00', '#1a2d1a', '#00152d', '#2d2d00', '#1a001a', '#0a1a0a'],
+  'animation': ['#001a0d', '#0a1a00', '#001510', '#0d1a05', '#051a0d', '#0a1505', '#001a0a', '#0a0a1a'],
+  'ad-directing': ['#1a001a', '#0d001a', '#1a0010', '#10001a', '#1a0005', '#05001a', '#0f0010', '#1a000a'],
+  'illustration': ['#000d1a', '#001520', '#001018', '#00101a', '#000a15', '#00151a', '#001015', '#001218'],
+}
+
+const BehanceIcon = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      fill="currentColor"
+      d="M8.52 11.06c1.23 0 2.13-.8 2.13-1.99 0-1.45-1.14-2.12-2.78-2.12H2v10h6.09c1.83 0 3.18-.94 3.18-2.61 0-1.79-1.41-2.28-2.75-2.28Zm-4.41-3.39h3.3c.83 0 1.37.35 1.37 1.08 0 .72-.54 1.1-1.37 1.1h-3.3V7.67Zm3.53 7.6H4.11v-2.01h3.53c.91 0 1.59.27 1.59 1.01 0 .77-.68 1-1.59 1Zm10.73-5.72c-2.65 0-4.31 1.91-4.31 4.03 0 2.35 1.72 3.86 4.32 3.86 2.1 0 3.53-1.08 3.95-2.53h-2.05c-.26.53-.98.98-1.86.98-1.13 0-1.97-.58-2.03-1.86H22c.22-2.89-1.52-4.48-3.63-4.48Zm0 1.6c1.06 0 1.63.58 1.73 1.61h-3.55c.12-.98.8-1.61 1.82-1.61Zm-3.28-3.38h6.49V9.1h-6.49V7.77Z"
+    />
+  </svg>
+)
+
+const ArtStationIcon = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="currentColor" d="m20.86 18.95 1.72 2.98H10.03l-1.42-2.98h12.25Z" />
+    <path fill="currentColor" d="M10.95 2.07h4.06L23 15.95H8.05L10.95 2.07Z" />
+    <path fill="currentColor" d="M6.12 6.2 8.82 21.93H1.42L6.12 6.2Z" />
+  </svg>
+)
+
+const LinkedInIcon = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      fill="currentColor"
+      d="M20.45 20.45h-3.56v-5.59c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.68H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.84 3.37-1.84 3.6 0 4.28 2.37 4.28 5.46v6.27ZM5.3 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.08 20.45H3.52V9h3.56v11.45Z"
+    />
+  </svg>
+)
+
+const FOOTER_SOCIALS = [
+  {
+    name: 'Behance',
+    url: 'https://www.behance.net/your-handle',
+    Icon: BehanceIcon,
+  },
+  {
+    name: 'ArtStation',
+    url: 'https://www.artstation.com/your-handle',
+    Icon: ArtStationIcon,
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/your-handle',
+    Icon: LinkedInIcon,
+  },
+]
+
+function FooterSocials() {
+  return (
+    <div className="footer-socials">
+      {FOOTER_SOCIALS.map(({ name, url, Icon }) => (
+        <a
+          key={name}
+          href={url}
+          className="footer-social-link"
+          aria-label={name}
+          title={name}
+          target="_blank"
+          rel="noreferrer noopener"
+          data-hover
+        >
+          <Icon />
+        </a>
+      ))}
+    </div>
+  )
 }
 
 // Generate placeholder SVG image
@@ -200,8 +265,8 @@ function Nav({ currentPage, navigate, navVisible }) {
       <nav className={`nav${navVisible ? ' visible' : ''}${scrolled ? ' scrolled' : ''}`}>
         <button className="nav-logo" onClick={() => goTo('home')}>Koroded</button>
         <ul className="nav-links">
-          <li><button style={{background:'none',color:'inherit',font:'inherit',cursor:'none'}} onClick={() => goTo('home')}>Work</button></li>
-          <li><button style={{background:'none',color:'inherit',font:'inherit',cursor:'none'}} onClick={() => goTo('contact')}>Contact</button></li>
+          <li><button style={{ background: 'none', color: 'inherit', font: 'inherit', cursor: 'none' }} onClick={() => goTo('home')}>Work</button></li>
+          <li><button style={{ background: 'none', color: 'inherit', font: 'inherit', cursor: 'none' }} onClick={() => goTo('contact')}>Contact</button></li>
         </ul>
         <button
           className={`nav-hamburger${mobileOpen ? ' open' : ''}`}
@@ -213,9 +278,9 @@ function Nav({ currentPage, navigate, navVisible }) {
       </nav>
       <div className={`nav-mobile-overlay${mobileOpen ? ' open' : ''}`}>
         {CATEGORIES.map(c => (
-          <button key={c.id} style={{background:'none',font:'inherit',cursor:'none'}} onClick={() => goTo(c.slug)}>{c.name}</button>
+          <button key={c.id} style={{ background: 'none', font: 'inherit', cursor: 'none' }} onClick={() => goTo(c.slug)}>{c.name}</button>
         ))}
-        <button style={{background:'none',font:'inherit',cursor:'none'}} onClick={() => goTo('contact')}>Contact</button>
+        <button style={{ background: 'none', font: 'inherit', cursor: 'none' }} onClick={() => goTo('contact')}>Contact</button>
       </div>
     </>
   )
@@ -306,14 +371,14 @@ function HomePage({ navigate }) {
         <div ref={showreelRef} className={`showreel-container${showreelIn ? ' in-view' : ''}`}>
           <div className="showreel-inner">
             {SHOWREEL_URL ? (
-              <video className="showreel-poster" src={SHOWREEL_URL} autoPlay muted loop />
+              <iframe className="showreel-poster" title="vimeo-player" src={SHOWREEL_URL} width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
             ) : (
               <img className="showreel-poster" src={SHOWREEL_POSTER} alt="Showreel poster" />
             )}
             <div className="showreel-vignette" />
-            <button className="play-btn" data-hover aria-label="Play showreel">
+            {/* <button className="play-btn" data-hover aria-label="Play showreel">
               <div className="play-triangle" />
-            </button>
+            </button> */}
             <div className="showreel-meta">2024 — 3:24</div>
           </div>
         </div>
@@ -332,16 +397,16 @@ function HomePage({ navigate }) {
               data-hover
               aria-label={`View ${cat.name}`}
             >
-          <div
-            className="category-card-bg"
-            style={{
-              backgroundImage: cat.cardImage
-                ? `url(${cat.cardImage})`
-                : cat.cardGradient,          // gradient is a valid backgroundImage value too
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          /> 
+              <div
+                className="category-card-bg"
+                style={{
+                  backgroundImage: cat.cardImage
+                    ? `url(${cat.cardImage})`
+                    : cat.cardGradient,          // gradient is a valid backgroundImage value too
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
               <div className="category-card-overlay" />
               <span className="category-card-num">{cat.num}</span>
               <span className="category-card-name">{cat.name}</span>
@@ -372,11 +437,7 @@ function SiteFooter({ navigate }) {
         Start a Project →
       </button>
       <a href="mailto:korodedw@gmail.com" className="footer-email">korodedw@gmail.com</a>
-      <div className="footer-socials">
-        {['Instagram', 'Behance', 'ArtStation', 'LinkedIn'].map(s => (
-          <a key={s} href="#" data-hover>{s}</a>
-        ))}
-      </div>
+      {/* <FooterSocials /> */}
       <div className="footer-bottom">
         © {new Date().getFullYear()} Koroded. All rights reserved.
       </div>
@@ -495,20 +556,20 @@ function CategoryPage({ catId, navigate }) {
     <div style={{ paddingBottom: '56px' }}>
       {/* ── Hero ── */}
       <section className="cat-hero">
-      <div
-        className={`cat-hero-bg${bgLoaded ? ' loaded' : ''}`}
-        style={{
-          backgroundImage: cat.heroImage
-            ? `url(${cat.heroImage})`
-            : cat.heroGradient,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
+        <div
+          className={`cat-hero-bg${bgLoaded ? ' loaded' : ''}`}
+          style={{
+            backgroundImage: cat.heroImage
+              ? `url(${cat.heroImage})`
+              : cat.heroGradient,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
         <div className="cat-hero-gradient" />
         <div className="cat-info-panel">
           <div className={`cat-info-title${panelRevealed ? ' revealed' : ''}`}>
-            {cat.name}C
+            {cat.name}
           </div>
           <div className={`cat-info-meta${panelRevealed ? ' revealed' : ''}`}>
             {cat.year} · {cat.role} · {cat.tools}
@@ -622,6 +683,7 @@ function ContactPage({ navigate }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     setSubmitted(true)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -642,7 +704,7 @@ function ContactPage({ navigate }) {
                 Available for concept art, animation, illustration commissions, and commercial directing.
                 Tell me about your project.
               </p>
-              <div className="contact-form">
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label className="form-label" htmlFor="name">Name</label>
                   <input
@@ -652,7 +714,8 @@ function ContactPage({ navigate }) {
                     value={form.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    autoComplete="off"
+                    autoComplete="name"
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -665,7 +728,8 @@ function ContactPage({ navigate }) {
                     value={form.email}
                     onChange={handleChange}
                     placeholder="your@email.com"
-                    autoComplete="off"
+                    autoComplete="email"
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -688,17 +752,17 @@ function ContactPage({ navigate }) {
                     value={form.message}
                     onChange={handleChange}
                     placeholder="Tell me about your project, timeline, and budget."
+                    required
                   />
                 </div>
                 <button
-                  type="button"
+                  type="submit"
                   className="form-submit"
-                  onClick={handleSubmit}
                   data-hover
                 >
                   Send Message →
                 </button>
-              </div>
+              </form>
             </>
           )}
         </div>

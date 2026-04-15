@@ -242,9 +242,9 @@ img {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(56px, 12vw, 148px);
+  font-size: clamp(48px, 9vw, 112px);
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   color: var(--off-white);
   text-align: center;
   transform: translateY(110%);
@@ -323,18 +323,22 @@ img {
   color: var(--text-dim);
   margin-bottom: 12px;
   padding-left: 4px;
+  text-align: center;
 }
 
 .showreel-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
+  max-width: 800px;          /* ← cap the width */
+  margin: 0 auto;            /* ← centre it */
+  padding-top: 40%;          /* ← was 56.25% — less tall */
   background: #111;
   overflow: hidden;
   transform: scale(0.94);
   opacity: 0;
   transition: transform 0.8s var(--ease-quart), opacity 0.8s var(--ease-quart);
-  box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.8);  /* ← softer shadow to match */
+  border-radius: 10px;
 }
 
 .showreel-container.in-view {
@@ -427,7 +431,7 @@ img {
 
 .category-card {
   position: relative;
-  aspect-ratio: 3/4;
+  aspect-ratio: 6/5;
   overflow: hidden;
   cursor: none;
   opacity: 0;
@@ -551,20 +555,33 @@ img {
 .footer-socials {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  align-items: center;
+  gap: 18px;
   margin-bottom: 64px;
 }
 
-.footer-socials a {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  transition: color 0.2s;
+.footer-social-link {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #a6a6a6;
+  opacity: 0.75;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
 }
 
-.footer-socials a:hover { color: var(--gold); }
+.footer-social-link svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
+
+.footer-social-link:hover {
+  color: #ffffff;
+  opacity: 1;
+  transform: translateY(-1px);
+}
 
 .footer-email {
   display: block;
@@ -1001,7 +1018,7 @@ img {
   .nav-hamburger { display: flex; }
   .nav { padding: 20px 24px; }
 
-  .hero-title { font-size: clamp(42px, 13vw, 72px); letter-spacing: 0.1em; }
+  .hero-title { font-size: clamp(38px, 11vw, 64px); letter-spacing: 0.1em; }
 
   .category-grid { grid-template-columns: 1fr 1fr; }
   .category-card { aspect-ratio: 1/1; }
